@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/morphosium
+    username: postgres
+    password: 1
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+# logging
+logging:
+  level:
+    org.hibernate.SQL: INFO
+    org.hibernate.SQL.type.descriptor.sql.BasicBinder: TRACE
+
+
+server:
+  port: 9099
+
+jwt:
+  signing-key-secret: savur
+  get-token-uri: /authenticate
+  refresh-token-uri: /refresh
+  http-request-header: Authorization
+  token-expiration-in-seconds: 604800
